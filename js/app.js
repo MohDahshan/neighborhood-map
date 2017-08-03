@@ -184,4 +184,4 @@ var viewModel = function(){
         }
         map.fitBounds(bounds);
 
-    };
+      };
