@@ -20,7 +20,7 @@ var viewModel = function(){
           new google.maps.Point(10, 34),
           new google.maps.Size(21,34));
         return markerImage;
-      }
+      };
 
 
       // This function populates the infowindow when the marker is clicked. We'll only allow
@@ -38,7 +38,7 @@ var viewModel = function(){
             infowindow.marker = null;
           });
         }
-      }
+      };
 
       // Create a new blank array for all the listing markers.
       self.markers = [];
@@ -114,7 +114,7 @@ var viewModel = function(){
         // Constructor creates a new map - only center and zoom are required.
         map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 30.8591514, lng: 31.9200567},
-          zoom: 13,
+          zoom: 15,
           styles: styles,
           mapTypeControl: false
         });
@@ -144,10 +144,11 @@ var viewModel = function(){
 
         self.largeInfowindow = new google.maps.InfoWindow();
         // The following group uses the location array to create an array of markers on initialize.
-        for (var i = 0; i < self.locations.length; i++) {
+        self.locations.forEach(function(location, i){
+
           // Get the position from the location array.
-          var position = self.locations[i].location;
-          var title = self.locations[i].title;
+          var position = location.location;
+          var title = location.title;
           // Create a marker per location, and put into markers array.
           var marker = new google.maps.Marker({
             position: position,
@@ -170,23 +171,17 @@ var viewModel = function(){
           marker.addListener('mouseout', function() {
             this.setIcon(defaultIcon);
           });
-        }
+
+
+        });
 
         // show marks on the map
         var bounds = new google.maps.LatLngBounds();
         // Extend the boundaries of the map for each marker and display the marker
-        for (var i = 0; i < self.markers.length; i++) {
-          self.markers[i].setMap(map);
-          bounds.extend(self.markers[i].position);
+        for (var ii = 0; ii < self.markers.length; ii++) {
+          self.markers[ii].setMap(map);
+          bounds.extend(self.markers[ii].position);
         }
         map.fitBounds(bounds);
 
-
-
-
-
-
-
-
-
-    }
+    };
