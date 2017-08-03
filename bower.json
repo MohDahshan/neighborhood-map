@@ -1,0 +1,17 @@
+{
+  "name": "nhmap",
+  "authors": [
+    "MohDahshan <mohmamdah@gmail.com>"
+  ],
+  "description": "NeighborhoodMap",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
