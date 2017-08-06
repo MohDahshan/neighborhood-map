@@ -2,8 +2,9 @@
 <html>
 <head>
 	<title>Neighborhood Map</title>
-	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -26,12 +27,13 @@
 
 
 
-<script type="text/javascript" src="js/scripts.js"></script>
-<script type="text/javascript" src="js/app.js"></script>
-<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="bower_components/knockout/dist/knockout.js"></script>
-  <script async defer
+<script src="js/mapstyles.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/app.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/knockout/dist/knockout.js"></script>
+  <script async defer onerror="mapErrorHandling()"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOtK8xayOezA7uo3UIITtUCNaKms30bwk&v=3&callback=initMap">
   </script>
 </body>
