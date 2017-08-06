@@ -1,12 +1,12 @@
 # neighborhood-map
 
 ### installation
-clone this repo
-run this command in your terminal in the main project folder
-'''
+1. clone this repo
+2. run this command in your terminal in the main project folder
+```
 bower install
-'''
-this command will download the required bower packages.
-open index.html file in your browser
+```
+3. this command will download the required bower packages.
+4. open index.html file in your browser
 
 
