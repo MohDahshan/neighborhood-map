@@ -3,38 +3,42 @@
 <head>
 	<title>Neighborhood Map</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
 
 
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <span data-bind="foreach: markers">
-    <a href="#" data-bind="text: title, click: $parent.populateInfoWindow($data, $parent.largeInfowindow)"></a>    
-  </span>
-</div>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="form-group">
+      <label for="usr">Search:</label>
+      <input placeholder="Search…" class="form-control" type="search" data-bind="textInput: query" autocomplete="off">
+    </div>
+    <span data-bind="foreach: markers">
+      <a href="#" data-bind="text: title, click: $parent.populateInfoWindow($data, $parent.largeInfowindow)"></a>    
+    </span>
+  </div>
 
-<!-- Use any element to open the sidenav -->
-<span onclick="openNav()" id="hmbr" class="glyphicon glyphicon-menu-hamburger hmbr" aria-hidden="true"></span>
-<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-<div id="map">
-  ...
-</div>
+  <!-- Use any element to open the sidenav -->
+  <span onclick="openNav()" id="hmbr" class="glyphicon glyphicon-menu-hamburger hmbr" aria-hidden="true"></span>
+  <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+  <div id="map">
+    ...
+  </div>
 
 
 
 
-<script src="js/mapstyles.js"></script>
-<script src="js/scripts.js"></script>
-<script src="js/app.js"></script>
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="bower_components/knockout/dist/knockout.js"></script>
+  <script src="js/mapstyles.js"></script>
+  <script src="js/scripts.js"></script>
+  <script src="js/app.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/knockout/dist/knockout.js"></script>
   <script async defer onerror="mapErrorHandling()"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOtK8xayOezA7uo3UIITtUCNaKms30bwk&v=3&callback=initMap">
-  </script>
+</script>
 </body>
 </html>
