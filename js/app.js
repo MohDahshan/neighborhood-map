@@ -79,7 +79,6 @@ var ViewModel = function () {
                 // Push the marker to our array of markers.
                 self.markers.push(marker);
             }
-            ;
         });
     });
     // Constructor creates a new map - only center and zoom are required.
