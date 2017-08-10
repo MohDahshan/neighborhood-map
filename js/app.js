@@ -130,9 +130,9 @@ var ViewModel = function() {
         // Check to make sure the infowindow is not already opened on this marker.
         if (infowindow.marker != marker) {
             infowindow.marker = marker;
-            var content = '<div>' + marker.title + '</div>'
-            content += '<div>' + marker.info.city + '</div>'
-            content += '<div>' + marker.info.street + '</div>'
+            var content = '<div>' + marker.title + '</div>';
+            content += '<div>' + marker.info.city + '</div>';
+            content += '<div>' + marker.info.street + '</div>';
             infowindow.setContent(content);
             infowindow.open(map, marker);
 
