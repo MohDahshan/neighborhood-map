@@ -99,6 +99,8 @@ var location_maker = function(location) {
                 self.city = locationInfo.location.formattedAddress[1];
             }
         }
+    }).fail(function(){
+        alert("Error Loading Foursquare Information");
     });
 };
 
