@@ -105,8 +105,6 @@ var location_maker = function(location) {
 };
 
 
-
-
 var ViewModel = function() {
     self = this;
     var map;
