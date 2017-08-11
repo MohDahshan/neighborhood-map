@@ -138,15 +138,6 @@ var ViewModel = function() {
             infowindow.setContent(content);
             infowindow.open(map, marker);
 
-            if (infowindow.marker.getAnimation() !== null) {
-                infowindow.marker.setAnimation(null);
-            } else {
-                infowindow.marker.setAnimation(google.maps.Animation.BOUNCE);
-                setTimeout(function() {
-                    infowindow.marker.setAnimation(null);
-                }, 1400);
-            }
-
             // Make sure the marker property is cleared if the infowindow is closed.
             infowindow.addListener('closeclick', function() {
                 infowindow.marker = null;
@@ -203,6 +194,14 @@ var ViewModel = function() {
         // Create an onclick event to open the large infowindow at each marker.
         marker.addListener('click', function() {
             self.populateInfoWindow(this, self.largeInfowindow);
+            if (marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+            } else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+                setTimeout(function() {
+                    marker.setAnimation(null);
+                }, 1400);
+            }
         });
         // Two event listeners - one for mouseover, one for mouseout,
         // to change the colors back and forth.
