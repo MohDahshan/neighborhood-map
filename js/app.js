@@ -73,8 +73,8 @@ var locations = [{
 // make location
 var location_maker = function(location) {
 
-    var CLIENT_ID = 'YOYR3VEOBJGTLUBHAFYSUOCHZGX5CE0EN445LUPT13BDGZUJ';
-    var CLIENT_SECRET = '4GFLALMRA0SALH4E4CVRBQXB34NPFMOH2EXEB2LJOOM2ARZM';
+    var CLIENT_ID = 'F2MO4GBL1MA2QHS10UJXXF3ZO3DAM0M00ADFZOXGF5YAX3ST';
+    var CLIENT_SECRET = 'HWXN2SLAVY5D4AUKL4PSZPGEGS2ZNK3EVXGR3BKTDEM0ZMW3';
 
     var self = this;
     this.title = location.title;
@@ -99,7 +99,7 @@ var location_maker = function(location) {
                 self.city = locationInfo.location.formattedAddress[1];
             }
         }
-    }).fail(function(){
+    }).fail(function() {
         alert("Error Loading Foursquare Information");
     });
 };
@@ -128,21 +128,9 @@ var ViewModel = function() {
     // This function populates the infowindow when the marker is clicked. We'll only allow
     // one infowindow which will open at the marker that is clicked, and populate based
     // on that markers position.
-    self.populateInfoWindow = function(marker, infowindow) {
+    self.populateInfoWindow = function(marker) {
         // Check to make sure the infowindow is not already opened on this marker.
-        if (infowindow.marker != marker) {
-            infowindow.marker = marker;
-            var content = '<div>' + marker.title + '</div>';
-            content += '<div>' + marker.info.city + '</div>';
-            content += '<div>' + marker.info.street + '</div>';
-            infowindow.setContent(content);
-            infowindow.open(map, marker);
-
-            // Make sure the marker property is cleared if the infowindow is closed.
-            infowindow.addListener('closeclick', function() {
-                infowindow.marker = null;
-            });
-        }
+        google.maps.event.trigger(marker, 'click');
     };
 
     // Constructor creates a new map - only center and zoom are required.
@@ -193,7 +181,7 @@ var ViewModel = function() {
 
         // Create an onclick event to open the large infowindow at each marker.
         marker.addListener('click', function() {
-            self.populateInfoWindow(this, self.largeInfowindow);
+            // self.populateInfoWindow(this, self.largeInfowindow);
             if (marker.getAnimation() !== null) {
                 marker.setAnimation(null);
             } else {
@@ -202,6 +190,22 @@ var ViewModel = function() {
                     marker.setAnimation(null);
                 }, 1400);
             }
+
+            if (self.largeInfowindow.marker != marker) {
+
+                self.largeInfowindow.marker = marker;
+                var content = '<div>' + marker.title + '</div>';
+                content += '<div>' + marker.info.city + '</div>';
+                content += '<div>' + marker.info.street + '</div>';
+                self.largeInfowindow.setContent(content);
+                self.largeInfowindow.open(map, marker);
+
+                // Make sure the marker property is cleared if the infowindow is closed.
+                self.largeInfowindow.addListener('closeclick', function() {
+                    self.largeInfowindow.marker = null;
+                });
+            }
+
         });
         // Two event listeners - one for mouseover, one for mouseout,
         // to change the colors back and forth.

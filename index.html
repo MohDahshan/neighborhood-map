@@ -20,7 +20,7 @@
             <input placeholder="Search…" class="form-control" type="search" data-bind="textInput: query" autocomplete="off">
         </div>
         <span data-bind="foreach: list">
-      <a href="#" data-bind="text: title, click: $parent.populateInfoWindow($data, $parent.largeInfowindow), visible: visible"></a>    
+      <a href="#" data-bind="text: title, click: $parent.populateInfoWindow.bind($data), visible: visible"></a>    
     </span>
     </div>
 
